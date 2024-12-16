@@ -101,6 +101,7 @@ button {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
+    font-family: 'LTSuperior';
     color: white;
 }
 
@@ -136,4 +137,8 @@ html {
     max-height: 100dvh;
     overflow: hidden;
     background: #000;
+
+    // @media (max-aspect-ratio: 1/1) {
+    //     overflow-x: scroll;
+    // }
 }

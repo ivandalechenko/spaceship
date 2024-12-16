@@ -1,4 +1,4 @@
-import { Assets } from './pixi';
+import { Assets, Texture } from './pixi';
 
 const loadTextures = async () => {
     const textures = {}
@@ -19,6 +19,7 @@ const loadTextures = async () => {
 
 
     textures.vasilyok = await Assets.load(`/img/vasilyok.png`);
+    textures.vasilyokStroke = await Assets.load(`/img/vasilyokStroke.png`);
     textures.blink = await Assets.load(`/img/blink.png`);
     textures.seat = await Assets.load(`/img/seat.png`);
     textures.steer = await Assets.load(`/img/steer.png`);
@@ -26,6 +27,19 @@ const loadTextures = async () => {
 
     textures.left = await Assets.load(`/img/left.png`);
     textures.leftStroke = await Assets.load(`/img/leftStroke.png`);
+    textures.right = await Assets.load(`/img/right.png`);
+    textures.chars = await Assets.load(`/img/chars.png`);
+
+    textures.rightLink = await Assets.load(`/img/rightLink.png`);
+    textures.rightLinkStroke = await Assets.load(`/img/rightLinkStroke.png`);
+
+    textures.centerRight = await Assets.load(`/img/centerRight.png`);
+    textures.centerRightStroke = await Assets.load(`/img/centerRightStroke.png`);
+
+    textures.centerLeft = await Assets.load(`/img/centerLeft.png`);
+    textures.centerLeftStroke = await Assets.load(`/img/centerLeftStroke.png`);
+
+
 
 
     return textures

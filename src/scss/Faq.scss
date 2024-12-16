@@ -1,0 +1,33 @@
+.Faq {
+    &_nav {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 24px;
+        width: 200px;
+    }
+
+    &_content {
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        column-gap: 20px;
+    }
+
+    &_text {
+        max-height: 70vh;
+        margin-top: 24px;
+        width: 100%;
+    }
+
+    &_header {
+        color: #26F2F6;
+        font-size: 32px;
+        font-weight: 900;
+    }
+
+    &_answer {
+        color: #26F2F6;
+        margin-top: 12px;
+        font-size: 24px;
+    }
+}
