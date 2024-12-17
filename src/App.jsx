@@ -100,20 +100,26 @@ function App() {
       let h = document.documentElement.clientHeight;
       let mob = false
       let kef = 2
+      let okef = 2
 
 
       if (h > w * 2) {
         w = w * 3
         kef = 3
+        okef = 4
+
         mob = true
       }
       if (h > w * 1.5) {
         w = w * 2.5
         kef = 2.5
+        okef = 3
         mob = true
       }
       if (h > w) {
         w = w * 2
+        kef = 2
+        okef = 1
         mob = true
       }
 
@@ -133,8 +139,19 @@ function App() {
         if (lmb) {
           clientX = lmb - newmobpos.current + event.touches[0].clientX;
         }
-        if (clientX < 0) {
-          clientX = 1
+
+        if (okef === 1) {
+          if (clientX < 0) {
+            clientX = 1
+          }
+        } else {
+          if (clientX < 0 - wIsh / 4) {
+            clientX = 1 - wIsh / 4
+          }
+        }
+
+        if (clientX > w - centerX) {
+          clientX = w - centerX
         }
 
 
@@ -143,9 +160,13 @@ function App() {
         // } else if (clientX > wIsh / 2.5) {
         //   clientX = w / 2.5
         // } else if (clientX > wIsh / 2) {
-        if (clientX > w / kef) {
-          clientX = w / kef
-        }
+
+        // console.log(clientX);
+
+
+        // if (clientX > w * kef) {
+        //   clientX = w / kef
+        // }
 
       }
 
