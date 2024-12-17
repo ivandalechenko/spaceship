@@ -142,3 +142,28 @@ html {
     //     overflow-x: scroll;
     // }
 }
+
+/* Стили для Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Ширина вертикального ползунка */
+    height: 12px;
+    /* Высота горизонтального ползунка */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #26F2F6;
+    /* Цвет ползунка */
+    border-radius: 6px;
+    /* Закругление */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(38, 242, 246, 0.8);
+    /* Цвет при наведении */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    /* Прозрачный фон */
+}
