@@ -295,10 +295,10 @@ function App() {
       </div>}
       {hideSpaceship && <div className='App_vids_wrapper free_img'><div className='App_vids'>
         {/* <div className='App_vids_inner'> */}
-        <video autoPlay muted loop>
+        <video autoPlay muted loop playsinline webkit-playsinline>
           <source src="/img/vid1.mp4" type="video/mp4" />
         </video>
-        <video autoPlay muted loop>
+        <video autoPlay muted loop playsinline webkit-playsinline>
           <source src="/img/vid2.mp4" type="video/mp4" />
         </video>
         {/* </div> */}
