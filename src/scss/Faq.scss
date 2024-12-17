@@ -4,6 +4,11 @@
         flex-wrap: wrap;
         row-gap: 24px;
         width: 200px;
+
+        @media(max-width: 800px) {
+            row-gap: 12px;
+            width: 100px;
+        }
     }
 
     &_content {
@@ -11,6 +16,10 @@
         justify-content: center;
         // align-items: center;
         column-gap: 20px;
+
+        @media(max-width: 800px) {
+            column-gap: 16px;
+        }
     }
 
     &_text {
@@ -24,11 +33,19 @@
         color: #26F2F6;
         font-size: 32px;
         font-weight: 900;
+
+        @media(max-width: 800px) {
+            font-size: 24px;
+        }
     }
 
     &_answer {
         color: #26F2F6;
         margin-top: 12px;
         font-size: 24px;
+
+        @media(max-width: 800px) {
+            font-size: 18px;
+        }
     }
 }

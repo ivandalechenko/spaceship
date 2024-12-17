@@ -99,14 +99,17 @@ function App() {
       let w = document.documentElement.clientWidth;
       let h = document.documentElement.clientHeight;
       let mob = false
+      let kef = 2
 
 
       if (h > w * 2) {
         w = w * 3
+        kef = 3
         mob = true
       }
       if (h > w * 1.5) {
         w = w * 2.5
+        kef = 2.5
         mob = true
       }
       if (h > w) {
@@ -133,8 +136,15 @@ function App() {
         if (clientX < 0) {
           clientX = 1
         }
-        if (clientX > w / 2) {
-          clientX = w / 2
+
+
+        // if (clientX > wIsh / 3) {
+        //   clientX = w / 3
+        // } else if (clientX > wIsh / 2.5) {
+        //   clientX = w / 2.5
+        // } else if (clientX > wIsh / 2) {
+        if (clientX > w / kef) {
+          clientX = w / kef
         }
 
       }

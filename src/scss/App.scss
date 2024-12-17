@@ -64,6 +64,10 @@
                 overflow-y: scroll;
 
             }
+
+            @media(max-width: 800px) {
+                padding: 12px;
+            }
         }
 
         &_header,
@@ -126,6 +130,10 @@
             transition: 500ms opacity ease-in-out;
             pointer-events: none;
             overflow: hidden;
+
+            @media(max-width: 900px) {
+                font-size: 48px;
+            }
 
             &_inner {
                 transition: translate 500ms ease-in-out;
