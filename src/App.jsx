@@ -141,11 +141,13 @@ function App() {
 
       console.log(clientX);
 
+      fingerdown.current = true;
+
+      if (mobpos.current) {
+        mouseMove(clientX, centerX, app, w, mob);
+      }
 
       mobpos.current = clientX
-
-      mouseMove(clientX, centerX, app, w, mob);
-      fingerdown.current = true;
     };
 
     const handleTouchEnd = () => {
