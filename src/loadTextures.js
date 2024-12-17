@@ -21,8 +21,10 @@ const loadTextures = async () => {
     textures.vasilyok = await Assets.load(`/img/vasilyok.png`);
     textures.vasilyokStroke = await Assets.load(`/img/vasilyokStroke.png`);
     textures.blink = await Assets.load(`/img/blink.png`);
+    textures.smile = await Assets.load(`/img/smile.png`);
     textures.seat = await Assets.load(`/img/seat.png`);
     textures.steer = await Assets.load(`/img/steer.png`);
+    textures.steerBad = await Assets.load(`/img/steerBad.png`);
     textures.shturval = await Assets.load(`/img/shturval.png`);
 
     textures.left = await Assets.load(`/img/left.png`);

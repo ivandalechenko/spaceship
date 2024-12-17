@@ -1,10 +1,12 @@
 #canvasWrapperPixi {
     height: 100dvh;
     width: 100%;
-
+    position: relative;
     // @media (max-aspect-ratio: 1/1) {
     //     width: 200vw;
     // }
+    // opacity: .1;
+    // opacity: 1;
 }
 
 .App {
@@ -89,6 +91,7 @@
         &_wrapper {
             width: 100% !important;
             align-items: start;
+            z-index: 999;
         }
 
         &_content {
@@ -105,6 +108,193 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
+        }
+    }
+
+    &_text {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        pointer-events: none;
+
+        &_inner {
+            font-size: 92px;
+            font-weight: 900;
+            text-shadow: 2px 2px #000;
+            transition: 500ms opacity ease-in-out;
+            pointer-events: none;
+            overflow: hidden;
+
+            &_inner {
+                transition: translate 500ms ease-in-out;
+                translate: 0px 0px;
+            }
+        }
+
+        &_wrapper {
+            width: 100% !important;
+            pointer-events: none;
+            align-items: start;
+        }
+    }
+
+    &_spaceship {
+        height: 100dvh;
+        width: 100%;
+        background: url('/img/bg.png');
+        // background-size: 120% 120%;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &Click {
+            width: 100%;
+            height: 100vh;
+
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            img {
+                width: 100px;
+                filter: drop-shadow(0px 0px 4px #000);
+            }
+
+            &_wrapper {
+                width: 100% !important;
+                z-index: 99999999;
+                align-items: start;
+                pointer-events: none;
+            }
+        }
+
+        img {
+            width: 100%;
+            scale: 0;
+            animation: poyava 8s 1 forwards ease-out;
+            transition: transform 200ms;
+
+            @keyframes poyava {
+                0% {
+                    scale: 0;
+                }
+
+                100% {
+                    scale: 1;
+                }
+            }
+
+        }
+
+        .canBeClicked {
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+        }
+
+        &_wrapper {
+            width: 100% !important;
+            align-items: start;
+            pointer-events: all;
+        }
+    }
+
+    &_perehod {
+        background: #fff;
+        height: 100dvh;
+        width: 100%;
+
+        z-index: 999999999;
+        transition: opacity 300ms;
+        pointer-events: none;
+        opacity: 1;
+
+        &_wrapper {
+            width: 100% !important;
+            align-items: start;
+            pointer-events: all;
+        }
+    }
+
+    &_buysell {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+
+        &_wrapper {
+            width: 100%;
+            align-items: start;
+            pointer-events: none;
+            position: relative;
+            z-index: 9;
+        }
+
+        &_btns {
+            width: 300px;
+            // background: #000;
+            backdrop-filter: blur(10px) brightness(.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 8px;
+            column-gap: 8px;
+            pointer-events: all;
+
+            border-radius: 12px 12px 0px 0px;
+        }
+
+        &_btn {
+            width: 140px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            color: #000;
+            font-size: 16px;
+            font-weight: 900;
+            border-radius: 4px;
+            transition: background-color 200ms, color 200ms;
+
+
+            &:hover {
+                cursor: pointer;
+                background-color: #000;
+                color: #fff;
+            }
+
+            &_err {
+                background-color: #FF0000 !important;
+                color: #fff !important;
+            }
+        }
+
+        img {
+            // backdrop-filter: blur(10px);
+            // backdrop-filter: brightness(0.2);
+        }
+    }
+
+    &_vids {
+        // background: red;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+        display: flex;
+        justify-content: space-between;
+
+        &_wrapper {
+            width: 100% !important;
+            align-items: start;
+        }
+
+        video {
+            width: 50vh;
         }
     }
 }

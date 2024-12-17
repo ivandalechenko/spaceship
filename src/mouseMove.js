@@ -1,7 +1,11 @@
 import { Container, Sprite } from './pixi';
 
 export default (clientX, centerX, app, w, mob) => {
-    const kef = 50
+    const kef = 50;
+
+    // const blinkersWrapper = app.stage.children.find(el => el.label == 'blinkersWrapper')
+    // const blinkers = blinkersWrapper.children.find(el => el.label == 'blinkers')
+
 
     let add = 0;
     if (mob) {
@@ -43,7 +47,7 @@ export default (clientX, centerX, app, w, mob) => {
     try {
 
         const floor = app.stage.children.find(el => el.label == 'floor')
-        floor.x = (clientX / kef - centerX / kef) + add
+        floor.x = (clientX / kef - centerX / kef) + add + w * 0.1
     } catch { }
 
     try {
@@ -84,9 +88,13 @@ export default (clientX, centerX, app, w, mob) => {
         frontPcLeft.x = ((clientX / kef) / 2 - centerX / kef / 2 - centerX / kef) + add
     } catch { }
     try {
-
         const left = app.stage.children.find(el => el.label == 'left')
         left.x = ((clientX / kef) / 2 - centerX / kef / 2 - centerX / kef) + add
+
+        // const leftBlinkerBorder = blinkers.children.find(el => el.label == 'leftBlinkerBorder')
+        // leftBlinkerBorder.x = ((clientX / kef) / 2 - centerX / kef / 2 - centerX / kef) + add
+        // const leftBlinker = blinkers.children.find(el => el.label == 'leftBlinker')
+        // leftBlinker.x = ((clientX / kef) / 2 - centerX / kef / 2 - centerX / kef) + add
     } catch { }
 
     try {
@@ -107,7 +115,16 @@ export default (clientX, centerX, app, w, mob) => {
 
         const blink = app.stage.children.find(el => el.label == 'blink')
         blink.x = (-(clientX / kef) / 5 - centerX / kef + w / 2) + add
+
     } catch { }
+
+    try {
+
+        const smile = app.stage.children.find(el => el.label == 'smile')
+        smile.x = (-(clientX / kef) / 5 - centerX / kef + w / 2) + add
+
+    } catch { }
+
 
     try {
 
@@ -151,7 +168,7 @@ export default (clientX, centerX, app, w, mob) => {
 
     try {
         const bg = app.stage.children.find(el => el.label == 'bg')
-        bg.x = (clientX / 100 - centerX / 100) + add
+        bg.x = (clientX / 100 - centerX / 100) + add + w * 0.1
     } catch { }
 
     try {

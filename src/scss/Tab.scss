@@ -6,16 +6,21 @@
     cursor: pointer;
 
     &_inner {
-        background: rgba($color: #26F2F6, $alpha: .1);
+        background-color: rgba($color: #26F2F6, $alpha: .1);
         padding: 12px;
         font-size: 15px;
         width: 178px;
         text-align: center;
         font-weight: 700;
+        transition: background-color 200ms;
 
         &_selected {
-            background: rgba($color: #26F2F6, $alpha: 1);
+            background-color: rgba($color: #26F2F6, $alpha: 1);
             color: #000;
+        }
+
+        &:hover {
+            background-color: rgba($color: #26F2F6, $alpha: .4);
         }
     }
 

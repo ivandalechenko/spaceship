@@ -1,12 +1,14 @@
 import { Container, Sprite, AnimatedSprite, Graphics, Text } from './pixi';
 
-export default (app, textures, w, h, openTab) => {
+export default (app, textures, w, h, openTab, setshowtext, settext) => {
 
     const bg = Sprite.from(textures.bg)
     bg.label = 'bg'
-    bg.width = w
+
+
+    bg.width = w * 0.8
     bg.height = h
-    bg.x = 0
+    bg.x = w * 0.1
     bg.y = 0
     bg.interactive = true
     app.stage.addChild(bg);
@@ -23,9 +25,9 @@ export default (app, textures, w, h, openTab) => {
 
     const floor = Sprite.from(textures.floor)
     floor.label = 'floor'
-    floor.width = w
+    floor.width = w * 0.8
     floor.height = h
-    floor.x = 0
+    floor.x = w * 0.1
     floor.y = 0
     app.stage.addChild(floor);
 
@@ -101,9 +103,12 @@ export default (app, textures, w, h, openTab) => {
     rightLink.cursor = 'pointer';
     rightLink.on('mouseenter', () => {
         rightLink.texture = textures.rightLinkStroke
+        settext('SOCIALS')
+        setshowtext(true)
     });
     rightLink.on('mouseout', () => {
         rightLink.texture = textures.rightLink
+        setshowtext(false)
     });
 
 
@@ -142,9 +147,12 @@ export default (app, textures, w, h, openTab) => {
     centerRight.cursor = 'pointer';
     centerRight.on('mouseenter', () => {
         centerRight.texture = textures.centerRightStroke
+        settext('ROADMAP')
+        setshowtext(true)
     });
     centerRight.on('mouseout', () => {
         centerRight.texture = textures.centerRight
+        setshowtext(false)
     });
 
 
@@ -161,9 +169,12 @@ export default (app, textures, w, h, openTab) => {
     centerLeft.cursor = 'pointer';
     centerLeft.on('mouseenter', () => {
         centerLeft.texture = textures.centerLeftStroke
+        settext('F.A.Q.')
+        setshowtext(true)
     });
     centerLeft.on('mouseout', () => {
         centerLeft.texture = textures.centerLeft
+        setshowtext(false)
     });
 
 
@@ -232,10 +243,26 @@ export default (app, textures, w, h, openTab) => {
     vasilyok.cursor = 'pointer';
     vasilyok.on('mouseenter', () => {
         vasilyok.texture = textures.vasilyokStroke
+        settext('$PATCHY')
+        setshowtext(true)
     });
     vasilyok.on('mouseout', () => {
         vasilyok.texture = textures.vasilyok
+        setshowtext(false)
     });
+    const smile = Sprite.from(textures.smile)
+    smile.label = 'smile'
+    smile.width = (w / 2000) * 251
+    smile.height = (h / 1125) * 285
+    smile.x = w / 2
+    smile.y = (h / 1125) * 600
+    smile.anchor.set(.5, 0)
+    smile.alpha = 0;
+    smile.interactive = false;
+    app.stage.addChild(smile);
+
+
+
 
 
     const steerYpos = 900;
@@ -294,9 +321,12 @@ export default (app, textures, w, h, openTab) => {
     left.cursor = 'pointer';
     left.on('mouseenter', () => {
         left.texture = textures.leftStroke
+        settext('TOKENOMICS')
+        setshowtext(true)
     });
     left.on('mouseout', () => {
         left.texture = textures.left
+        setshowtext(false)
     });
 
 
@@ -315,35 +345,72 @@ export default (app, textures, w, h, openTab) => {
     app.stage.addChild(blinkersWrapper);
     blinkersWrapper.addChild(blinkers);
 
+    blinkers.label = 'blinkers'
+    blinkersWrapper.label = 'blinkersWrapper'
+
+
     const rightLinkBlinker = new Graphics();
     const rightLinkBlinkerBorder = new Graphics();
     rightLinkBlinkerBorder.circle(0, 0, 15); // Радиус 50
     rightLinkBlinker.circle(0, 0, 10); // Радиус 50
-    rightLinkBlinkerBorder.fill(0x000000); // Белый цвет
+    rightLinkBlinkerBorder.label = 'rightLinkBlinkerBorder';
+    rightLinkBlinker.label = 'rightLinkBlinker';
+    rightLinkBlinkerBorder.stroke(0xffffff); // Белый цвет
     rightLinkBlinker.fill(0xffffff); // Белый цвет
     rightLinkBlinkerBorder.alpha = .5
     rightLinkBlinkerBorder.position.set(rightLink.x + (w / 2000) * 100, rightLink.y + (w / 1100) * 100);
     rightLinkBlinker.position.set(rightLink.x + (w / 2000) * 100, rightLink.y + (w / 1100) * 100);
     blinkers.addChild(rightLinkBlinkerBorder);
     blinkers.addChild(rightLinkBlinker);
+    let rightLinkBlinkerBorderscale = 0;
+    let rightLinkBlinkerBorderalpha = 1;
+    app.ticker.add(() => {
+        rightLinkBlinkerBorderscale += 0.01;
+        rightLinkBlinkerBorderalpha -= 0.005;
+        rightLinkBlinkerBorder.scale.set(rightLinkBlinkerBorderscale);
+        rightLinkBlinkerBorder.alpha = rightLinkBlinkerBorderalpha;
+        if (rightLinkBlinkerBorderalpha <= 0) {
+            rightLinkBlinkerBorderscale = 0;    // Сбрасываем масштаб
+            rightLinkBlinkerBorderalpha = 1;    // Сбрасываем прозрачность
+        }
+    });
+
+
 
     const vasilyokBlinker = new Graphics();
     const vasilyokBlinkerBorder = new Graphics();
     vasilyokBlinkerBorder.circle(0, 0, 15); // Радиус 50
     vasilyokBlinker.circle(0, 0, 10); // Радиус 50
-    vasilyokBlinkerBorder.fill(0x000000); // Белый цвет
+    vasilyokBlinkerBorder.label = 'vasilyokBlinkerBorder';
+    vasilyokBlinker.label = 'vasilyokBlinker';
+    vasilyokBlinkerBorder.stroke(0xffffff); // Белый цвет
     vasilyokBlinker.fill(0xffffff); // Белый цвет
     vasilyokBlinkerBorder.alpha = .5
-    vasilyokBlinkerBorder.position.set(vasilyok.x - (w / 2000) * 25, vasilyok.y + (w / 1100) * 100);
-    vasilyokBlinker.position.set(vasilyok.x - (w / 2000) * 25, vasilyok.y + (w / 1100) * 100);
+    vasilyokBlinkerBorder.position.set(vasilyok.x - (w / 2000) * 25, vasilyok.y + (w / 1100) * 120);
+    vasilyokBlinker.position.set(vasilyok.x - (w / 2000) * 25, vasilyok.y + (w / 1100) * 120);
     blinkers.addChild(vasilyokBlinkerBorder);
     blinkers.addChild(vasilyokBlinker);
+    let vasilyokBlinkerBorderscale = 0;
+    let vasilyokBlinkerBorderalpha = 1;
+    app.ticker.add(() => {
+        vasilyokBlinkerBorderscale += 0.01;
+        vasilyokBlinkerBorderalpha -= 0.005;
+        vasilyokBlinkerBorder.scale.set(vasilyokBlinkerBorderscale);
+        vasilyokBlinkerBorder.alpha = vasilyokBlinkerBorderalpha;
+        if (vasilyokBlinkerBorderalpha <= 0) {
+            vasilyokBlinkerBorderscale = 0;    // Сбрасываем масштаб
+            vasilyokBlinkerBorderalpha = 1;    // Сбрасываем прозрачность
+        }
+    });
+
 
     const centerRightBlinker = new Graphics();
     const centerRightBlinkerBorder = new Graphics();
     centerRightBlinkerBorder.circle(0, 0, 15); // Радиус 50
     centerRightBlinker.circle(0, 0, 10); // Радиус 50
-    centerRightBlinkerBorder.fill(0x000000); // Белый цвет
+    centerRightBlinkerBorder.label = 'centerRightBlinkerBorder';
+    centerRightBlinker.label = 'centerRightBlinker';
+    centerRightBlinkerBorder.stroke(0xffffff); // Белый цвет
     centerRightBlinker.fill(0xffffff); // Белый цвет
     centerRightBlinkerBorder.alpha = .5
     centerRightBlinkerBorder.position.set(centerRight.x + (w / 2000) * 100, centerRight.y + (w / 1100) * 100);
@@ -351,11 +418,27 @@ export default (app, textures, w, h, openTab) => {
     blinkers.addChild(centerRightBlinkerBorder);
     blinkers.addChild(centerRightBlinker);
 
+    let centerRightBlinkerBorderscale = 0;
+    let centerRightBlinkerBorderalpha = 1;
+    app.ticker.add(() => {
+        centerRightBlinkerBorderscale += 0.01;
+        centerRightBlinkerBorderalpha -= 0.005;
+        centerRightBlinkerBorder.scale.set(centerRightBlinkerBorderscale);
+        centerRightBlinkerBorder.alpha = centerRightBlinkerBorderalpha;
+        if (centerRightBlinkerBorderalpha <= 0) {
+            centerRightBlinkerBorderscale = 0;    // Сбрасываем масштаб
+            centerRightBlinkerBorderalpha = 1;    // Сбрасываем прозрачность
+        }
+    });
+
+
     const centerLeftBlinker = new Graphics();
     const centerLeftBlinkerBorder = new Graphics();
     centerLeftBlinkerBorder.circle(0, 0, 15); // Радиус 50
     centerLeftBlinker.circle(0, 0, 10); // Радиус 50
-    centerLeftBlinkerBorder.fill(0x000000); // Белый цвет
+    centerLeftBlinkerBorder.label = 'centerLeftBlinkerBorder';
+    centerLeftBlinker.label = 'centerLeftBlinker';
+    centerLeftBlinkerBorder.stroke(0xffffff); // Белый цвет
     centerLeftBlinker.fill(0xffffff); // Белый цвет
     centerLeftBlinkerBorder.alpha = .5
     centerLeftBlinkerBorder.position.set(centerLeft.x + (w / 2000) * 100, centerLeft.y + (w / 1100) * 100);
@@ -363,11 +446,27 @@ export default (app, textures, w, h, openTab) => {
     blinkers.addChild(centerLeftBlinkerBorder);
     blinkers.addChild(centerLeftBlinker);
 
+    let centerLeftBlinkerBorderscale = 0;
+    let centerLeftBlinkerBorderalpha = 1;
+    app.ticker.add(() => {
+        centerLeftBlinkerBorderscale += 0.01;
+        centerLeftBlinkerBorderalpha -= 0.005;
+        centerLeftBlinkerBorder.scale.set(centerLeftBlinkerBorderscale);
+        centerLeftBlinkerBorder.alpha = centerLeftBlinkerBorderalpha;
+        if (centerLeftBlinkerBorderalpha <= 0) {
+            centerLeftBlinkerBorderscale = 0;    // Сбрасываем масштаб
+            centerLeftBlinkerBorderalpha = 1;    // Сбрасываем прозрачность
+        }
+    });
+
+
     const leftBlinker = new Graphics();
     const leftBlinkerBorder = new Graphics();
     leftBlinkerBorder.circle(0, 0, 15); // Радиус 50
     leftBlinker.circle(0, 0, 10); // Радиус 50
-    leftBlinkerBorder.fill(0x000000); // Белый цвет
+    leftBlinkerBorder.label = 'leftBlinkerBorder';
+    leftBlinker.label = 'leftBlinker';
+    leftBlinkerBorder.stroke(0xffffff); // Белый цвет
     leftBlinker.fill(0xffffff); // Белый цвет
     leftBlinkerBorder.alpha = .5
     leftBlinkerBorder.position.set(left.x + (w / 2000) * 300, left.y - (w / 1100) * 200);
@@ -375,11 +474,23 @@ export default (app, textures, w, h, openTab) => {
     blinkers.addChild(leftBlinkerBorder);
     blinkers.addChild(leftBlinker);
 
+    let leftBlinkerBorderscale = 0;
+    let leftBlinkerBorderalpha = 1;
+    app.ticker.add(() => {
+        leftBlinkerBorderscale += 0.01;
+        leftBlinkerBorderalpha -= 0.005;
+        leftBlinkerBorder.scale.set(leftBlinkerBorderscale);
+        leftBlinkerBorder.alpha = leftBlinkerBorderalpha;
+        if (leftBlinkerBorderalpha <= 0) {
+            leftBlinkerBorderscale = 0;    // Сбрасываем масштаб
+            leftBlinkerBorderalpha = 1;    // Сбрасываем прозрачность
+        }
+    });
 
 
 
     app.ticker.add((delta) => {
-        const blinkSpeed = 0.01;
+        const blinkSpeed = 0.005;
         blinkers.alpha = 0.8 + 0.2 * Math.sin(app.ticker.lastTime * blinkSpeed);
     });
 
@@ -389,8 +500,8 @@ export default (app, textures, w, h, openTab) => {
 
 
     const circle = new Graphics();
-    circle.circle(0, 0, 30); // Радиус 50
-    circle.fill(0xffffff); // Белый цвет
+    circle.circle(0, 0, 40); // Радиус 50
+    circle.stroke(0xffffff); // Белый цвет
     circle.interactive = false; // Отключаем интерактивность
     app.stage.addChild(circle);
 
@@ -398,8 +509,8 @@ export default (app, textures, w, h, openTab) => {
     const text = new Text('Click to\nexplore', {
         fontFamily: 'Arial',
         fontSize: 14,
-        // fill: 0xFFFFFF, // Черный цвет текста
-        fill: 0x000000, // Черный цвет текста
+        fill: 0xFFFFFF, // Черный цвет текста
+        // fill: 0x000000, // Черный цвет текста
         align: 'center',
     });
     text.anchor.set(0.5); // Центровка текста
