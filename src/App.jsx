@@ -407,7 +407,7 @@ function App() {
             <div className='App_tab_socials'>
               <Tab text={'Twitter'} link="" />
               <Tab text={'Telegram'} link="" />
-              <Tab text={'Dexscreener'} link="" />
+              <Tab text={'Lets Bonk'} link="https://letsbonk.fun/token/6D6ccmg71x56V5Je1Mh82MFPYL38gaZqNc2LG1XMbonk" />
               <Tab text={'Dextools'} link="" />
               {/* <Tab text={'Coingecko'} /> */}
             </div>
