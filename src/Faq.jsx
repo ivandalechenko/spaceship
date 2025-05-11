@@ -54,7 +54,7 @@ export default ({ close }) => {
                                 Which chain is $PATCHY build on?
                             </div>
                             <div className='Faq_answer'>
-                                Ethereum
+                                Solana
                             </div>
 
                         </>}
@@ -63,7 +63,7 @@ export default ({ close }) => {
                                 Is Patchy a rug?
                             </div>
                             <div className='Faq_answer'>
-                                50/50 chance
+                                <img src="/img/bonk.jpg" alt="" />
                             </div>
 
                         </>}
@@ -71,9 +71,9 @@ export default ({ close }) => {
                             <div className='Faq_header'>
                                 Where and how can I buy $PATCHY
                             </div>
-                            <div className='Faq_answer'>
-                                Check one of the other screens
-                            </div>
+                            <a href='https://raydium.io/' target='_blank' className='Faq_answer'>
+                                Radium
+                            </a>
                         </>}
                     </div>
                 </div>

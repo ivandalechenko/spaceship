@@ -11,6 +11,32 @@
 
 .App {
 
+    &_tgText {
+        width: 100% !important;
+        align-items: start !important;
+        z-index: 10;
+
+        &_inner {
+            width: 100%;
+            background: linear-gradient(to bottom, #000, #0000);
+
+            &_inner {
+                font-size: 20px;
+                color: #fff !important;
+                padding: 12px 12px;
+                text-shadow: 0px 0px 10px #000, 0px 0px 4px #000;
+                text-align: center;
+                max-width: 800px;
+                width: 100%;
+                margin: 0 auto;
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
     &_please_hor {
         width: 100% !important;
         align-items: start !important;

@@ -348,31 +348,30 @@ function App() {
             </div>
 
             <div className='App_tab_header'>
-              Tokenomics
+              Patchy Tokenomics & Launch
             </div>
-            <div className='App_tab_subheader'>
+            {/* <div className='App_tab_subheader'>
               1 No Fees, Just Vibes.
-            </div>
+            </div> */}
             <div className='App_tab_p'>
-              Degens can let loose on trading and finally be the market makers they've always dreamed of—no charges, no limits, just pure unhinged vibes. Nothing holding us back, only endless shitposts and degenerate dreams.
+              Launched on letsbonk.fun – No Presale, No Fuckery
+              Patchy was unleashed the only way that made sense—100% of supply straight into the liquidity pool on letsbonk.fun. No dev wallets, no pre-mines, no VC allocations. Just you, the blockchain, and your degenerate instincts.
+              This isn’t your typical stealth launch. This is full transparency, full send.
             </div>
             <div className='App_tab_subheader'>
-              2 Liquidity Locked, Rug-Proof
+              Total Supply: 1,000,000,000 $PATCHY
             </div>
             <div className='App_tab_p'>
-              $Patchy's liquidity is locked tighter than your ex's wallet. No funny business, just pure degeneracy unleashed.
-            </div>
-            <div className='App_tab_subheader'>
-              3 Fixed Supply, Unlimited Chaos.
+              * 100% to Liquidity Pool
             </div>
             <div className='App_tab_p'>
-              1 billion Patchy tokens, and that's it. Grab your share before the supply shock hits and the chaos begins.
-            </div>
-            <div className='App_tab_subheader'>
-              4 Anti-Whale Defense, Fair for All.
+              * 0% Team Tokens
             </div>
             <div className='App_tab_p'>
-              Patchy keeps it balanced with a 1% max wallet limit. No greedy whales hoarding the stash, just a level playing field for all degens to dive in and share $Patchy
+              * 0% Presale
+            </div>
+            <div className='App_tab_p'>
+              * 0% Taxes
             </div>
           </div>
         </div>}
@@ -406,10 +405,10 @@ function App() {
               Our Socials
             </div>
             <div className='App_tab_socials'>
-              <Tab text={'Twitter'} link="https://x.com/patchyoneth" />
-              <Tab text={'Telegram'} link="https://t.me/patchyoneth" />
-              <Tab text={'Dexscreener'} link="https://www.dextools.io/app/en/ether/pair-explorer/0xfeded496880ef5c8e2d90b1efb0f2ed63929c3b3" />
-              <Tab text={'Dextools'} link="https://dexscreener.com/ethereum/0xfeded496880ef5c8e2d90b1efb0f2ed63929c3b3" />
+              <Tab text={'Twitter'} link="" />
+              <Tab text={'Telegram'} link="" />
+              <Tab text={'Dexscreener'} link="" />
+              <Tab text={'Dextools'} link="" />
               {/* <Tab text={'Coingecko'} /> */}
             </div>
           </div>
@@ -429,26 +428,39 @@ function App() {
 
       </div>
       {
-        hideSpaceship && <div className='App_buysell_wrapper free_img'>
-          <div className='App_buysell'>
-            <div className='App_buysell_btns'>
-              <div className='App_buysell_btn' onClick={() => {
-                buy()
-              }}>
-                BUY
-              </div>
-              <div className={`App_buysell_btn ${showSellError && 'App_buysell_btn_err'}`} onClick={() => {
-                setshowSellError(true)
-                sell()
-              }}>
-                {showSellError ? 'ERROR' : 'SELL'}
+        hideSpaceship && <>
+          <div className='App_tgText free_img'>
+            <div className='App_tgText_inner'>
+              <div className='App_tgText_inner_inner'>
+                I’m in it for the art — not a serial launcher. The rest? That’s up to the community.
+                <br />
+                Think you’ve got what it takes to lead this masterpiece?
+                <br />
+                Slide into <a href="https://t.me/PatchyContent" target='_blank'>@PatchyContent</a>’s DMs on Telegram and prove you’ve got the skills to CTO this degenerate creation. Impress him and he’ll drop the whole Patchy content vault on you.
+                <br />
+                <br />
+                No resume, just results. Show us you’re built for this.
               </div>
             </div>
-            {/* <div className='App_buysell_img'>
-            <img src="/img/bot.svg" alt="" />
-          </div> */}
           </div>
-        </div>
+          <div className='App_buysell_wrapper free_img'>
+            <div className='App_buysell'>
+              <div className='App_buysell_btns'>
+                <div className='App_buysell_btn' onClick={() => {
+                  buy()
+                }}>
+                  BUY
+                </div>
+                <div className={`App_buysell_btn ${showSellError && 'App_buysell_btn_err'}`} onClick={() => {
+                  setshowSellError(true)
+                  sell()
+                }}>
+                  {showSellError ? 'ERROR' : 'SELL'}
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       }
       <div ref={pixiScene} id="canvasWrapperPixi" style={{
         zIndex: hideSpaceship ? '3' : '-1'
