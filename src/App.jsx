@@ -429,20 +429,6 @@ function App() {
       </div>
       {
         hideSpaceship && <>
-          <div className='App_tgText free_img'>
-            <div className='App_tgText_inner'>
-              <div className='App_tgText_inner_inner'>
-                I’m in it for the art — not a serial launcher. The rest? That’s up to the community.
-                <br />
-                Think you’ve got what it takes to lead this masterpiece?
-                <br />
-                Slide into <a href="https://t.me/PatchyContent" target='_blank'>@PatchyContent</a>’s DMs on Telegram and prove you’ve got the skills to CTO this degenerate creation. Impress him and he’ll drop the whole Patchy content vault on you.
-                <br />
-                <br />
-                No resume, just results. Show us you’re built for this.
-              </div>
-            </div>
-          </div>
           <div className='App_buysell_wrapper free_img'>
             <div className='App_buysell'>
               <div className='App_buysell_btns'>
