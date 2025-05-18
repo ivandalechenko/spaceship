@@ -405,10 +405,10 @@ function App() {
               Our Socials
             </div>
             <div className='App_tab_socials'>
-              <Tab text={'Twitter'} link="" />
-              <Tab text={'Telegram'} link="" />
+              <Tab text={'Twitter'} link="https://x.com/PatchyOnSol" />
+              <Tab text={'Telegram'} link="https://t.me/PatchyOnSolana" />
               <Tab text={'Lets Bonk'} link="https://letsbonk.fun/token/6D6ccmg71x56V5Je1Mh82MFPYL38gaZqNc2LG1XMbonk" />
-              <Tab text={'Dextools'} link="" />
+              <Tab text={'DexScreener'} link="https://dexscreener.com/solana/a8mbsuqkajmtsu42jdwphjko3vqc9srdfpdsf3sz5huf" />
               {/* <Tab text={'Coingecko'} /> */}
             </div>
           </div>
