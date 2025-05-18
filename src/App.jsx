@@ -326,21 +326,22 @@ function App() {
         </div>
       </div>
       </div>}
-      {hideSpaceship && <div className='App_vids_wrapper free_img'><div className='App_vids'>
-        {/* <div className='App_vids_inner'> */}
-        <video autoPlay muted loop playsinline webkit-playsinline>
-          <source src="/img/v1.mp4" type="video/mp4" />
-        </video>
-        <video autoPlay muted loop playsinline webkit-playsinline>
-          <source src="/img/v2.mp4" type="video/mp4" />
-        </video>
-        {/* </div> */}
-      </div>
+      {hideSpaceship && <div className='App_vids_wrapper free_img'>
+        <div className='App_vids'>
+          {/* <div className='App_vids_inner'> */}
+          <video autoPlay muted loop playsinline webkit-playsinline>
+            <source src="/img/v1.mp4" type="video/mp4" />
+          </video>
+          <video autoPlay muted loop playsinline webkit-playsinline>
+            <source src="/img/v2.mp4" type="video/mp4" />
+          </video>
+          {/* </div> */}
+        </div>
       </div>}
       <div className="App_tab_wrapper free_img">
 
-        {openedTab === 'left' && <div className='App_tab tokenomics'>
-          <div className='App_tab_inner'>
+        {openedTab === 'left' && <div className='App_tab tokenomics' onClick={() => setopenedTab('')}>
+          <div className='App_tab_inner' onClick={(e) => { e.stopPropagation() }}>
             <div className='App_tab_cross free_img'>
               <img src="/img/cross.svg" alt="" onClick={(e) => {
                 setopenedTab('')
@@ -378,8 +379,10 @@ function App() {
 
         {openedTab === 'centerLeft' && <Faq close={() => { setopenedTab('') }} />}
 
-        {openedTab === 'centerRight' && <div className='App_tab roadmap'>
-          <div className='App_tab_inner'>
+
+
+        {openedTab === 'centerRight' && <div className='App_tab roadmap' onClick={() => setopenedTab('')}>
+          <div className='App_tab_inner' onClick={(e) => { e.stopPropagation() }}>
             <div className='App_tab_cross free_img'>
               <img src="/img/cross.svg" alt="" onClick={(e) => {
                 setopenedTab('')
@@ -394,8 +397,8 @@ function App() {
           </div>
         </div>}
 
-        {openedTab === 'rightLink' && <div className='App_tab roadmap'>
-          <div className='App_tab_inner'>
+        {openedTab === 'rightLink' && <div className='App_tab roadmap' onClick={() => setopenedTab('')}>
+          <div className='App_tab_inner' onClick={(e) => { e.stopPropagation() }}>
             <div className='App_tab_cross free_img'>
               <img src="/img/cross.svg" alt="" onClick={(e) => {
                 setopenedTab('')
@@ -414,8 +417,8 @@ function App() {
           </div>
         </div>}
 
-        {openedTab === 'vasilyok' && <div className='App_tab roadmap'>
-          <div className='App_tab_inner'>
+        {openedTab === 'vasilyok' && <div className='App_tab roadmap' onClick={() => setopenedTab('')}>
+          <div className='App_tab_inner' onClick={(e) => { e.stopPropagation() }}>
             <div className='App_tab_cross free_img'>
               <img src="/img/cross.svg" alt="" onClick={(e) => {
                 setopenedTab('')

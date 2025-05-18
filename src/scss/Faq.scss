@@ -29,7 +29,7 @@
         width: 100%;
 
         a {
-            display: block;
+            // display: block;
             text-decoration: underline;
         }
     }
@@ -51,6 +51,11 @@
 
         @media(max-width: 800px) {
             font-size: 18px;
+        }
+
+        &_bold {
+            color: #26F2F6;
+            font-weight: 700;
         }
 
         img {
