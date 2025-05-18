@@ -432,11 +432,11 @@ function App() {
           <div className='App_buysell_wrapper free_img'>
             <div className='App_buysell'>
               <div className='App_buysell_btns'>
-                <div className='App_buysell_btn' onClick={() => {
+                <a href='https://jup.ag/swap/SOL-6D6ccmg71x56V5Je1Mh82MFPYL38gaZqNc2LG1XMbonk' target='_blank' className='App_buysell_btn' onClick={() => {
                   buy()
                 }}>
                   BUY
-                </div>
+                </a>
                 <div className={`App_buysell_btn ${showSellError && 'App_buysell_btn_err'}`} onClick={() => {
                   setshowSellError(true)
                   sell()
